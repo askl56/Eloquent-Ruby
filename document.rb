@@ -1,5 +1,6 @@
 class Document
-  attr_accessor :title, :author, :content
+  attr_accessor :writable
+  attr_reader :title, :author, :content
 
   def initialize(title, author, content)
     @title = title
@@ -13,5 +14,11 @@ class Document
 
   def word_count
     words.size
+  end
+
+  def title=( new_title )
+    if @writable
+      @title = new_title
+    end
   end
 end
